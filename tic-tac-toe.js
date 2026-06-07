@@ -112,10 +112,10 @@ function Cell() {
 function GameController(
     playerOneName = "player1",
     playerTwoName = "player2",
-    start = false
+    gameActive = false
 ) {
     const board = Gameboard();
-    players = [
+    const players = [
         {
             name: playerOneName,
             token: 1,
@@ -126,7 +126,7 @@ function GameController(
         }
     ];
 
-    liveStatus = {
+    const liveStatus = {
         turn: "turn",
         error: "error",
         win: "win",
@@ -135,7 +135,7 @@ function GameController(
 
     let activePlayer = players[0];
     let currentStatus = liveStatus.turn;
-    let end = !start;
+    let end = !gameActive;
 
     //activePlayer should be controlled only by GameController
     const getActivePlayer = () => activePlayer;
@@ -182,7 +182,11 @@ function GameController(
           
             changeStatus("win");
             return;
-        } else if ((row + col ) % 2 == 0) {
+        } else if ((row + col ) % 2 == 0) { 
+            //diagonal cells are  either same row/col index or 
+            //their sum is one less than n(3) in an n*n(3*3) board = 2
+            //so the sum of indices in our case is always even for diagonal cells
+
             const diagonals = board.getDiagonals()
             if (row == col) {
                 if (isAWin(diagonals.leftDiagonal, activePlayer)) {
@@ -197,7 +201,10 @@ function GameController(
                     return;
                 }
             }
-        } else if (board.isFilled()) {
+        }  
+
+        //after all-win check, check draws;
+        if (board.isFilled()) {
      
             changeStatus("tie");
             toggleSwitch();
@@ -213,7 +220,7 @@ function GameController(
         getActivePlayer,
         getStatus,
         getBoard: board.getBoard,
-        playRound,
+        playRound
     }
 
 }
