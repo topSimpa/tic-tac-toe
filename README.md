@@ -7,6 +7,13 @@ fun!
 - A GameBoard, where the game is been played
 - A customizable player name
 
+## How to play?
+- players either enter their name or use default names
+- click the start buttons
+- players take turn marking cells on board
+- a player to first mark three adjacent cells win
+- no wins, when board is full, is a tie.
+
 ## Objective
 - To practice code organisation using JS Object
 - To demonstrate skill in building a basic web page
