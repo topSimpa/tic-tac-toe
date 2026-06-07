@@ -4,6 +4,7 @@ body {
     min-height: 100vh;
     justify-content: center;
     align-items: center;
+    font-family: "Poppins";
 }
 
 .container {
@@ -33,10 +34,14 @@ body {
     margin-top: 16px;
 }
 
+.error {
+    color: red;
+}
+
 .cell {
     background-color: white ;
     height: min(110px, 10em);
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
@@ -48,9 +53,11 @@ form {
 }
 
 .player {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;   
     gap: 4px;
+    width: 33%;
 }
 
 input{
@@ -58,6 +65,7 @@ input{
     color: hsl(27, 28%, 39%);
     padding: 4px;
     border-radius: 4px;
+    min-width: 0%;
 }
 
 input:focus {
@@ -71,3 +79,18 @@ input:focus {
     color: floralwhite;
     border-radius: 4px;
 }
+
+.game-status {
+    font-size: 1.2rem;
+}
+
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Light.woff2') format('woff2'),
+        url('fonts/Poppins-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+

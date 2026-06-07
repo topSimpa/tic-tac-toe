@@ -1,12 +1,3 @@
-console.log("Welcome to tic-tac-toe");
-
-//Big 1: write a console ready game to play
-//Task1: write a console game flow simulation
-//Task2: write a winning logic
-//Task3: catch an invalid move & keep player's turn
-
-//Big 2: DomController
-
 //Gameboard
 //the Gameboard represent state of the game.
 //board contain cells which are essentially form from the 
@@ -45,19 +36,6 @@ function Gameboard() {
         updateEmptyCount();
         return true;
 
-    }
-
-    //use to display the board in the console 
-    const displayBoard = () => {
-        board.forEach(
-            (row) => {
-                row.forEach(
-                    (cell) => {
-                        console.log(cell.getValue());
-                    }
-                );
-            }
-        )
     }
 
     //the getRow, getColumn, getLeftDiagonal, and getRightDiagonal
@@ -99,8 +77,7 @@ function Gameboard() {
 
     return {
         move,
-        displayBoard, // for console version
-        getBoard, // for UI version
+        getBoard,
         getRow,
         getColumn,
         getDiagonals,
@@ -173,10 +150,6 @@ function GameController(
 
     const getStatus = () => currentStatus;
 
-    const printRound = () => {
-        console.log(`${getActivePlayer().name} turn, make your move`)
-    }
-
     const isAWin = (adjacentCells, player) => {
         const match = adjacentCells.filter((value) => (value == player.token))
         
@@ -193,53 +166,47 @@ function GameController(
 
     
     const playRound = (row, col) => {
-        console.log(row,col);
+ 
         //acknowledge valid move only
         const validMove = board.move(row, col, activePlayer);
         if (!validMove) {
-            console.log("invalid..move");
             changeStatus("error");
             return;
         }
 
         //win logic comes here
         if (isAWin(board.getRow(row), activePlayer)){
-            console.log("row win")
             changeStatus("win");
             return;
         } else if (isAWin(board.getColumn(col), activePlayer)) {
-            console.log("column win");
+          
             changeStatus("win");
             return;
-        } else if (board.isFilled()) {
-            console.log("filled")
-            changeStatus("tie");
-            toggleSwitch();
-            return;
-        }else if ((row + col ) % 2 == 0) {
-            console.log("recognize diagonal")
+        } else if ((row + col ) % 2 == 0) {
             const diagonals = board.getDiagonals()
             if (row == col) {
                 if (isAWin(diagonals.leftDiagonal, activePlayer)) {
-                    console.log("left-diagonal")
+                    
                     changeStatus("win");
                     return;
                 }
             }
             if ((row + col) == 2) {
-                console.log(diagonals.rightDiagonal)
                 if (isAWin(diagonals.rightDiagonal, activePlayer)) {
                     changeStatus("win");
                     return;
                 }
             }
-        } 
-
-        //no wins
+        } else if (board.isFilled()) {
+     
+            changeStatus("tie");
+            toggleSwitch();
+            return;
+        }
+    
+        
         switchTurn();
     }
-
-    // printRound();
 
     return {
         ended,
@@ -267,7 +234,7 @@ function GameController(
         board.innerHTML = "";
         errorStatus.innerHTML = "";
 
-        console.log("in-update");
+     
 
         const activePlayer = game.getActivePlayer();
         const status = game.getStatus();
@@ -318,13 +285,9 @@ function GameController(
 
     }
 
+    //GameStartEntryHandler, for handling game start/form
     function gameStartEntryHandler(event) {
         event.preventDefault();
-
-        if (!game.ended()) {
-            return;
-        }
-
         const playersForm =  new FormData(event.target);
         const playersData = Object.fromEntries(playersForm.entries())
 
@@ -337,10 +300,12 @@ function GameController(
         updateScreen();
     }
 
+    //handles board clicking
     function clickBoardHandler(event) {
         let { row, col } = event.target.dataset;
         
         if (game.ended()){
+            errorStatus.textContent = "please press the start button to play";
             return;
         }
 
