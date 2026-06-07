@@ -1,7 +1,8 @@
 # Project:Tic-Tac-Toe
-An interactive web version of the Tic-Tac-Toe game. This is a project that was developed towards the 
-completion of [The Odin Project]() curriculum. A game for two players, so get your love ones and have
-fun!
+An interactive web version of the Tic-Tac-Toe game. 
+This is a project that was developed towards the completion of 
+[The Odin Project](https://www.theodinproject.com) curriculum. 
+A game for two players, so get your love ones and have fun!
 
 ## Features
 - A GameBoard, where the game is been played
@@ -13,6 +14,8 @@ fun!
 - players take turn marking cells on board
 - a player to first mark three adjacent cells win
 - no wins, when board is full, is a tie.
+
+want to play? [Tic-Tac-Toe](https://topsimpa.github.io/tic-tac-toe/) and have fun!
 
 ## Objective
 - To practice code organisation using JS Object
@@ -27,4 +30,4 @@ fun!
 - Vanilla JS
 
 ### Credits
-project idea: [The Odin Project]()
+project idea: [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe)
