@@ -5,13 +5,12 @@ fun!
 
 ## Features
 - A GameBoard, where the game is been played
-- players
-- customizable mark colors
+- A customizable player name
 
 ## Objective
 - To practice code organisation using JS Object
 - To demonstrate skill in building a basic web page
-- To demonstrate understanding of closure, scope, factory-functions, constructor function & IIFEs.
+- To demonstrate understanding of closure, scope, factory-functions & IIFEs.
 - To write code that is easy to read & debug
 - To write a more performant code
 
