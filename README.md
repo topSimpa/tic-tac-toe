@@ -11,7 +11,9 @@ fun!
 ## Objective
 - To practice code organisation using JS Object
 - To demonstrate skill in building a basic web page
-- To demonstrate understanding of closure, scope, factory-functions, IIFEs.
+- To demonstrate understanding of closure, scope, factory-functions, constructor function & IIFEs.
+- To write code that is easy to read & debug
+- To write a more performant code
 
 ### Technologies:
 - HTML

@@ -9,6 +9,22 @@
     <script src="./tic-tac-toe.js" defer></script>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <form id="players-form">
+                <div class="player">
+                    <input type="text" name="player1" placeholder="player1">X
+                </div>
+                <div class="player">
+                    <input type="text" name="player2" placeholder="player2">O
+                </div>
+                <button type="submit" class="start-button">Start Game</button>
+        </form>
+        <div class="tic-tac-toe">
+            <h2 class="game-status"></h2>
+            <p class="error"></p>
+            <div class="board"></div>
+        </div>
+    </div>
 </body>
 </html>

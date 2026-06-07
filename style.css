@@ -1,3 +1,73 @@
 body {
-    background-color: bisque;
+    background-color: hsl(27, 28%, 39%);
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: min(650px, 100vw);
+    background-color: white;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.tic-tac-toe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.board {
+    background-color: #bdbec4;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(33%, 110px));
+    gap: 8px;
+    width: min(346px, 100%);
+    margin-top: 16px;
+}
+
+.cell {
+    background-color: white ;
+    height: min(110px, 10em);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.player {
+    display: flex;
+    align-items: center;   
+    gap: 4px;
+}
+
+input{
+    border: 1px solid #bdbec4;
+    color: hsl(27, 28%, 39%);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+input:focus {
+    border: 2px solid hsl(27, 28%, 39%);
+    outline: none;
+}
+
+.start-button {
+    padding: 4px 8px;
+    background-color:hsl(27, 28%, 39%);
+    color: floralwhite;
+    border-radius: 4px;
 }
